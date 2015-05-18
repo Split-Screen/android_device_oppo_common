@@ -23,6 +23,8 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.INJECT_EVENTS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
 
     <uses-sdk
@@ -86,8 +88,14 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
                 <action android:name="cyanogenmod.intent.action.GESTURE_CAMERA" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
+
+        <service android:name=".BaconDozeService"
+                 android:permission="BaconDozeService">
+        </service>
+
     </application>
 
 </manifest>

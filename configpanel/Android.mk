@@ -21,4 +21,6 @@ LOCAL_SRC_FILES := $(call all-java-files-under, src)
 LOCAL_CERTIFICATE := platform
 LOCAL_PACKAGE_NAME := ConfigPanel
 
+LOCAL_PROGUARD_FLAG_FILES := proguard.flags
+
 include $(BUILD_PACKAGE)

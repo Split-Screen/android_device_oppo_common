@@ -60,6 +60,8 @@ public class Startup extends BroadcastReceiver {
                     String node = Constants.sNodePreferenceMap.get(pref);
                     FileUtils.writeLine(node, value ? "1" : "0");
                 }
+                // Enable Doze Intent
+                updateDozeServiceState(context);
             }
 
             // Disable backtouch settings if needed
@@ -182,5 +184,9 @@ public class Startup extends BroadcastReceiver {
         } else {
             context.stopService(serviceIntent);
         }
+    }
+
+    private void updateDozeServiceState(Context context) {
+        context.startService(new Intent(context, BaconDozeService.class));
     }
 }
